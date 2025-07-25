@@ -7,7 +7,7 @@ This project implements a serverless AWS Lambda function that translates PDF fil
 - Uses Gemini 2.5 Flash model for translation
 - Keeps formatting, structure, and page numbering
 - Automatically saves translated output in a separate S3 bucket
-- 
+
 ## 📦 Prerequisites
 
 Before using this project, make sure the following resources are created:
@@ -39,18 +39,18 @@ Attach this role to your Lambda function.
 
 ### 📁 Environment Variables
 
--Set environment variables directly in the AWS Lambda console
--Go to the AWS Lambda Console → Configuration → Environment variables.
--Add:
+- Set environment variables directly in the AWS Lambda console
+- Go to the AWS Lambda Console → Configuration → Environment variables.
+- Add:
 GEMINI_API_KEY = your_api_key
 DEST_BUCKET_NAME = your-bucket
 
-#### Lambda layers :
-uploda 
+
 
 ## Notes
-Make sure the Lambda has enough memory (recommend ≥ 512MB) and timeout (≥ 3m)
-
-Gemini model used: gemini-2.5-flash
-
-Only PDF files are supported
+- Make sure the Lambda has enough memory (recommend ≥ 512MB) and timeout (≥ 3m)
+- Gemini model used: gemini-2.5-flash
+- Only PDF files are supported
+- Add a layer to the lambda function. The above layer.zip contains packaged dependencies.
+- Deploy Lambda and connect the trigger to the source S3 bucket
+  
