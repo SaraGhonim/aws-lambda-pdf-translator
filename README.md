@@ -42,15 +42,15 @@ Attach this role to your Lambda function.
 - Set environment variables directly in the AWS Lambda console
 - Go to the AWS Lambda Console → Configuration → Environment variables.
 - Add:
-GEMINI_API_KEY = your_api_key
-DEST_BUCKET_NAME = your-bucket
+   GEMINI_API_KEY = your_api_key
+,  DEST_BUCKET_NAME = your-bucket
 
 
 
 ## Notes
 - Make sure the Lambda has enough memory (recommend ≥ 512MB) and timeout (≥ 3m)
+- Add a layer to the Lambda function. The above layer.zip contains packaged dependencies.
+- Deploy Lambda and connect the trigger to the source S3 bucket
 - Gemini model used: gemini-2.5-flash
 - Only PDF files are supported
-- Add a layer to the lambda function. The above layer.zip contains packaged dependencies.
-- Deploy Lambda and connect the trigger to the source S3 bucket
-  
+
