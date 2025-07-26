@@ -2,7 +2,7 @@ import os
 from PyPDF2 import PdfReader, PdfWriter
 import math
 
-def split_pdf(input_path, pages_per_file=30, output_dir="/tmp/splittedPDFs"):
+def split_pdf(input_path, pages_per_file, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     reader = PdfReader(input_path)
     
@@ -25,6 +25,3 @@ def split_pdf(input_path, pages_per_file=30, output_dir="/tmp/splittedPDFs"):
 
         with open(file_path, "wb") as out_file:
             writer.write(out_file)
-
-    print(f"Done splitting PDF into {chunksNum} files.")
-
